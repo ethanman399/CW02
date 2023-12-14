@@ -1,14 +1,5 @@
-FROM node:latest
+FROM node:6.14.2
+EXPOSE 8080
+COPY server.js .
+CMD node server.js
 
-RUN mkdir -p /app
-
-WORKDIR /app
-
-COPY package.json package.json
-COPY package-lock.json package-lock.json
-
-RUN npm install
-
-COPY server.js server.js
-
-CMD [ "node", "server.js" ]
